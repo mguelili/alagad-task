@@ -1,1 +1,77 @@
-<!doctype html><html><head><meta charset="utf-8"><title>POS Login</title><style>body{font-family:Arial;background:#17202a;color:white;display:grid;place-items:center;height:100vh}.box{background:white;color:#17202a;padding:30px;border-radius:8px;width:320px}input{width:100%;padding:10px;margin:7px 0 15px;box-sizing:border-box}.btn{width:100%;padding:10px;background:#2563eb;color:white;border:0}</style></head><body><form class="box" method="post" action="/login"><h1>POS Login</h1><?php if(session('error')): ?><p><?= esc(session('error')) ?></p><?php endif ?><label>Username</label><input name="username" required><label>Password</label><input type="password" name="password" required><button class="btn">Log in</button></form></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>BluePOS Login</title>
+
+    <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
+</head>
+<body class="login-page">
+
+<div class="login-shell">
+    <section class="login-brand-panel">
+        <div>
+            <span class="login-badge">Point-of-Sale System</span>
+
+            <h1>Welcome to<br><strong>BluePOS</strong></h1>
+
+            <p>
+                Manage products, customers, staff, inventory,
+                and sales from one secure workspace.
+            </p>
+        </div>
+
+        <small>Fast. Organized. Reliable.</small>
+    </section>
+
+    <section class="login-form-panel">
+        <form class="login-box" method="post" action="<?= site_url('login') ?>">
+            <div class="login-heading">
+                <span class="eyebrow">Staff Access</span>
+                <h2>Sign in to your account</h2>
+                <p>Enter your staff credentials to continue.</p>
+            </div>
+
+            <?php if (session('error')): ?>
+                <div class="alert">
+                    <?= esc(session('error')) ?>
+                </div>
+            <?php endif ?>
+
+            <label for="username">Username</label>
+            <input
+                type="text"
+                id="username"
+                name="username"
+                value="<?= old('username') ?>"
+                autocomplete="username"
+                placeholder="Enter your username"
+                required
+                autofocus
+            >
+
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                autocomplete="current-password"
+                placeholder="Enter your password"
+                required
+            >
+
+            <button class="login-button" type="submit">
+                Sign In
+            </button>
+
+            <p class="login-note">
+                Authorized staff members only
+            </p>
+        </form>
+    </section>
+</div>
+
+</body>
+</html>
