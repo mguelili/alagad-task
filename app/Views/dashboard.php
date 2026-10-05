@@ -1,0 +1,1 @@
+<?= $this->include('layout/header') ?><div class="card">Products<br><strong><?= $products ?></strong></div><div class="card">Customers<br><strong><?= $customers ?></strong></div><div class="card">Sales<br><strong><?= $sales ?></strong></div><p>Welcome, <?= esc(session('user_name')) ?>.</p><?= $this->include('layout/footer') ?>
